@@ -1,26 +1,14 @@
-import express, { request, response } from 'express';
+import express from 'express';
+
+import "./database"
+import { routes } from './routes'
 
 const app = express();
 
-//METODOS HTTP
-//get -> buscar a informaçao(listar usuario), 
-//post -> criar alguma informaçao (cadastrar usuario), 
-//put -> editar informação (editar usuario) ,
-//delete -> deletar informação (deleatr usuario)
-//patch -> alterar uma informação especifica (editar usuario especifico)
+//definindo que podem chegar req em formato json
+app.use(express.json())
 
-app.get("/", (request, response) => {
-    return response.json({
-        message: "Olá NLW 05"
-    })
-})
-
-app.post("/users", (request, response) => {
-    return response.json({
-        message: "Usuario salvo com sucesso"
-    })
-})
-
+app.use(routes)
 
 //iniciando a aplicacao
 app.listen(3333, () => console.log('Backend rodando, na porta 3333'))
