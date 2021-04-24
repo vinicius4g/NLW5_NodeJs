@@ -19,6 +19,10 @@ app.get("/pages/client",(request, response) => {
     return response.render("html/client.html")
 })
 
+app.get("/pages/admin",(request, response) => {
+    return response.render("html/admin.html")
+})
+
 //criando um servido http e utilizando tudo que tem dentro do app
 const http = createServer(app) //criando o protocolo http
 
